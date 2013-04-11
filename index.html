@@ -14,6 +14,10 @@
         </div>
     </script>
     
+    <script type="text/x-handlebars" data-template-name="index">
+        {{#linkTo users}}Go to the users page{{/linkTo}}
+    </script>
+    
     <script type="text/x-handlebars" data-template-name="users">
         <ul class="users-listing">
             {{#each user in controller}}
