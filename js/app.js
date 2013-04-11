@@ -29,13 +29,32 @@ App.UsersRoute = Ember.Route.extend({
     }
 });
 
+// we would certainly have to set stuff on our userRoute but Ember auto generated it for us :) 
+// in fact we could even delete this userRoute lines of code
+App.UserRoute = Ember.Route.extend({
+    // because we followed Ember's naming conventions 
+    // this route's model is auto generated internally 
+    /*model: function(params) { 
+        return App.User.find(params.post_id);
+    }*/
+});
 
 
 // ----------------- \
 // CONTROLLERS
 // ----------------- \
 
+// the usersRoute grabs a LIST of users so we need an ArrayController 
+// because ArrayController are meant to manage multiple models 
+// http://emberjs.com/guides/controllers/#toc_representing-models 
+App.UsersController = Ember.ArrayController.extend();
 
+// our nested user route will render only a single user at a time 
+// so in this case we'll use an ObjectController
+App.UserController = Ember.ObjectController.extend();
+
+
+//App.UserEditController = Ember.ObjectController.extend();
 
 
 // ----------------- \
