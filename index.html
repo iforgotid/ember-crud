@@ -35,6 +35,10 @@
     <script type="text/x-handlebars" data-template-name="user">
         <div class="user-pane">
             <div class="user-profile pane">
+                <div class="tools aright">
+                    <button class="icon-pencil" {{action edit}}></button>
+                </div>
+                
                 <div class="img"><img {{bindAttr src="avatarUrl"}}></div>
                 <h2>{{name}}</h2>
                 <address>{{email}}</address>

@@ -39,6 +39,11 @@ App.UserRoute = Ember.Route.extend({
     }*/
 });
 
+App.UserEditRoute = Ember.Route.extend({
+    model: function(){
+        return this.modelFor('user');
+    }
+});
 
 // ----------------- \
 // CONTROLLERS
@@ -51,10 +56,13 @@ App.UsersController = Ember.ArrayController.extend();
 
 // our nested user route will render only a single user at a time 
 // so in this case we'll use an ObjectController
-App.UserController = Ember.ObjectController.extend();
+App.UserController = Ember.ObjectController.extend({
+    edit: function(){
+        this.transitionToRoute('user.edit');
+    }
+});
 
-
-//App.UserEditController = Ember.ObjectController.extend();
+App.UserEditController = Ember.ObjectController.extend();
 
 
 // ----------------- \
