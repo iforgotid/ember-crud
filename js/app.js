@@ -57,9 +57,15 @@ App.UsersController = Ember.ArrayController.extend();
 // our nested user route will render only a single user at a time 
 // so in this case we'll use an ObjectController
 App.UserController = Ember.ObjectController.extend({
-    edit: function(){
+    edit: function(){ 
         // this will go into the edit route
         this.transitionToRoute('user.edit');
+    },
+    delete: function(){ 
+        // this will tell Ember Data to delete the current user
+        this.get('content').deleteRecord();
+        // this will go to the users route
+        this.transitionToRoute('users');
     }
 });
 
