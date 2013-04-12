@@ -58,11 +58,19 @@ App.UsersController = Ember.ArrayController.extend();
 // so in this case we'll use an ObjectController
 App.UserController = Ember.ObjectController.extend({
     edit: function(){
+        // this will go into the edit route
         this.transitionToRoute('user.edit');
     }
 });
 
-App.UserEditController = Ember.ObjectController.extend();
+App.UserEditController = Ember.ObjectController.extend({
+    closeEditing: function(){
+        // this will tell Ember-Data to save/persist the new values
+        this.get('store').commit();
+        // this will go to the parent route
+        this.transitionToRoute('user');
+    }
+});
 
 
 // ----------------- \
