@@ -29,14 +29,16 @@ App.UsersRoute = Ember.Route.extend({
     }
 });
 
-// we would certainly have to set stuff on our userRoute but Ember auto generated it for us :) 
-// in fact we could even delete this userRoute lines of code
 App.UserRoute = Ember.Route.extend({
     // because we followed Ember's naming conventions 
     // this route's model is auto generated internally 
     /*model: function(params) { 
         return App.User.find(params.post_id);
     }*/
+    setupController: function(controller){
+        // to ensure the deleteMode is disabled when entering the route
+        controller.set('deleteMode', false);
+    }
 });
 
 App.UserEditRoute = Ember.Route.extend({
