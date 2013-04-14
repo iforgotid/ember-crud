@@ -146,5 +146,6 @@ $mainColHeight: 400px;
 // user creation styles
 .user-create {
     @extend .user-edit; 
+    left:0px;
 }
 

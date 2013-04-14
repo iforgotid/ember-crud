@@ -375,3 +375,6 @@ h3 { margin: 0 0 10px 0; text-align: left; text-transform: uppercase; }
 .user-edit.hidden, .hidden.user-create { visibility: hidden; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/divers\/tests\/ember-crud\/scss\/style\.scss}line{font-family:\00003143}}
 .user-edit.shown, .shown.user-create { visibility: visible; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/divers\/tests\/ember-crud\/scss\/style\.scss}line{font-family:\00003147}}
+.user-create { left: 0px; }

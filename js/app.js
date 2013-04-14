@@ -42,8 +42,16 @@ App.UserRoute = Ember.Route.extend({
 });
 
 App.UserEditRoute = Ember.Route.extend({
+    // sets the model to the user model
     model: function(){
         return this.modelFor('user');
+    }
+});
+
+App.UsersCreateRoute = Ember.Route.extend({
+    // sets the model to an empty object
+    model: function(){
+        return {};
     }
 });
 
@@ -85,6 +93,15 @@ App.UserEditController = Ember.ObjectController.extend({
         // this will tell Ember-Data to save/persist the new values
         this.get('store').commit();
         // this will go to the parent route
+        this.transitionToRoute('user');
+    }
+});
+
+App.UsersCreateController = Ember.ObjectController.extend({
+    addUser: function(){
+        // create a new user
+        App.User.createRecord(this.content);
+        // go to the new user route
         this.transitionToRoute('user');
     }
 });
