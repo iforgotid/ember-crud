@@ -57,15 +57,24 @@ App.UsersController = Ember.ArrayController.extend();
 // our nested user route will render only a single user at a time 
 // so in this case we'll use an ObjectController
 App.UserController = Ember.ObjectController.extend({
+    deleteMode: false, // the deleteMode property is false by default
+    
+    delete: function(){
+        // now our delete method is only switching deleteMode from true to false and vice versa
+        this.toggleProperty('deleteMode', true);
+    },
+    cancelDelete: function(){
+        // cancelDelete sets deleteMode to false
+        this.set('deleteMode', false);
+    },
+    confirmDelete: function(){
+        // this will tell Ember Data to delete the current user
+        this.get('content').deleteRecord();
+        this.transitionToRoute('users');
+    },
     edit: function(){ 
         // this will go into the edit route
         this.transitionToRoute('user.edit');
-    },
-    delete: function(){ 
-        // this will tell Ember Data to delete the current user
-        this.get('content').deleteRecord();
-        // this will go to the users route
-        this.transitionToRoute('users');
     }
 });
 
